@@ -36,37 +36,37 @@ h1 {
 }
 
 /* RECIPES */
-#recipe-container {
+#recipe-box {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat (5, 1fr);
 }
 
-.recipe {
+.recipeCard {
   display: grid;
   grid-template-areas: 
-    "T T T T"
-    "K K IMG IMG"
+    "N N N N"
+    "E E IMG IMG"
     "P P IMG IMG"
     "F F IMG IMG"
     "C C IMG IMG"
     "I I I I";
 }
 
-.recipe>h4 {
-  grid-area: T;
+.recipeCard>h4 {
+  grid-area: N;
 }
 
-.recipe>img {
+.recipeCard>img {
   grid-area: IMG;
 }
 
-.recipe>section {
+.recipeCard>section {
   grid-area: I;
 }
 
-.kcal {
-  grid-area: K;
+.energy {
+  grid-area: E;
 }
 
 .protein {
