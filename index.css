@@ -45,12 +45,12 @@ h1 {
 .recipeCard {
   display: grid;
   grid-template-areas: 
-    "N N N N"
-    "E E IMG IMG"
-    "P P IMG IMG"
-    "F F IMG IMG"
-    "C C IMG IMG"
-    "I I I I";
+    "N N N N N"
+    "E E IMG IMG IMG"
+    "P P IMG IMG IMG"
+    "F F IMG IMG IMG"
+    "C C I I I"
+    "I I I I I";
 }
 
 .recipeCard>h4 {
@@ -61,8 +61,12 @@ h1 {
   grid-area: IMG;
 }
 
-.recipeCard>section {
+.recipeCard>details {
   grid-area: I;
+}
+
+.recipeCard>summary {
+  
 }
 
 .energy {
