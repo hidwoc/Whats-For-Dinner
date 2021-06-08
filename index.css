@@ -42,10 +42,44 @@ h1 {
   grid-template-rows: repeat (5, 1fr);
 }
 
-#recipe {
-
+.recipe {
+  display: grid;
+  grid-template-areas: 
+    "T T T T"
+    "K K IMG IMG"
+    "P P IMG IMG"
+    "F F IMG IMG"
+    "C C IMG IMG"
+    "I I I I";
 }
 
+.recipe>h4 {
+  grid-area: T;
+}
+
+.recipe>img {
+  grid-area: IMG;
+}
+
+.recipe>section {
+  grid-area: I;
+}
+
+.kcal {
+  grid-area: K;
+}
+
+.protein {
+  grid-area: P;
+}
+
+.fat {
+  grid-area: F;
+}
+
+.carbs {
+  grid-area: C;
+}
 /* FOOTER */
 footer {
   position: absolute;
