@@ -1,0 +1,55 @@
+/* ENTIRE PAGE */
+body {
+  font-family:;
+  /* IMPORT FONT */
+  margin: 0;
+}
+
+/* HEADER */
+header {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* FORM */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+#ingredients-input {
+  margin: 10px;
+}
+
+#submit {
+
+}
+
+/* RECIPES */
+#recipe-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat (5, 1fr);
+}
+
+#recipe {
+
+}
+
+/* FOOTER */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+}

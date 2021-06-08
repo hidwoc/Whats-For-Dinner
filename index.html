@@ -16,10 +16,13 @@
     <h3>Tell us what you have and we'll show you what's good!</h3>
     <!--OPT: "and what's important to you" -->
   </header>
-  <div class="form-container">
-    <form>
+  <div>
+    <form class="form-container">
+      <!-- <fieldset> for multiple items?
+        JS: [ENTER] adds to ingredients list. Moves up from ingredients-input 
+        [SUBMIT] take ingredients list, filters, and searches for recipes-->
       <input id="ingredients-input" type="text" placeholder="What's in your kitchen?">
-      <input id="submit" type="submit">
+      <input id="submit" type="submit" value="Find me recipes">
     </form>
   </div>
   <!-- <div class="filter-container">
@@ -34,7 +37,7 @@
     <button type="button">Back to Top</button>
   </nav> -->
  
-  <div class="results-container">
+  <div class="recipe-container">
 
   </div>
   
