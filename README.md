@@ -283,21 +283,21 @@ https://api.edamam.com/search
 | Complete Base HTML & CSS | Complete Results CSS | Add Filter Options | |
 | | | Add single serving calculator | |
 ## Timeframes
-| Component | Priority | Estimated Time | Time Invested | Actual Time |
+| Component | Priority | Estimated Time | Actual Time |
 | --- | --- |  --- | --- | --- |
-| Initial HTML setup | H | 2hrs|  |  |
-| CSS for basic layout | M | 3hrs|  |  |
-| Axios set up | H | 3hrs|  |  |
-| Render results | H | 3hrs|  |  |
-| CSS for results | H | 3hrs|  |  |
-| Media query | H | 3hrs|  |  |
-| General Research aka Known Unknowns | M | 2hrs|  |  |
-| Unknown Unknowns | H | 3hrs | | |
-| Debugging | H | 3hrs|  |  |
-| Other JS | L | 3hrs|  |  |
-| MVP Total |  | 28hrs|  |  |
-| (Optional) Single Serving Calculator | L | 1hr | | |
-| (Optional) Filters/Labels JS | L | 3hrs | | |
-| (Optional) Filters/Labels CSS | L | 3hrs | | |
-| PMVP Total |  | 35hrs|  |  |
+| Initial HTML setup | H | 2hrs| 45min |
+| CSS for basic layout | M | 3hrs| 1hr |
+| Axios set up | H | 3hrs| 1hr 15min |
+| Render results | H | 3hrs|  |
+| CSS for results | H | 3hrs| 30min |
+| Media query | H | 3hrs|  |
+| General Research aka Known Unknowns | M | 2hrs| 30min |
+| Unknown Unknowns | H | 3hrs |  |
+| Debugging | H | 3hrs|  |
+| Other JS | L | 3hrs|  |
+| MVP Total |  | 28hrs| 4hrs |
+| (Optional) Single Serving Calculator | L | 1hr | |
+| (Optional) Filters/Labels JS | L | 3hrs | 
+| (Optional) Filters/Labels CSS | L | 3hrs | |
+| PMVP Total |  | 35hrs|  | 
 
