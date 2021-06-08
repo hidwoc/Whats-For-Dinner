@@ -261,7 +261,10 @@ https://api.edamam.com/search
 }
 ```
 ## Wireframes
+#### Desktop
 ![WFD_Wireframe](https://user-images.githubusercontent.com/83293460/121194138-76b37f00-c83c-11eb-95b5-7aa5a6bb8ac0.png)
+#### Mobile
+![WFD_MobileWireframe](https://user-images.githubusercontent.com/83293460/121207526-59d07900-c847-11eb-9b5a-c93afb5d6662.png)
 ## MVP/PostMVP
 ### MVP
 - Axios call on Edamam API
