@@ -1,9 +1,15 @@
 // declare global variable recipeBox for container recipes will be appended to
 const recipeBox = document.querySelector("#recipe-box");
+// =====================================================
+// additive form code from workshop with Soleil!
+const fieldset = document.querySelector('fieldset');
+const addButton = document.querySelector('#add');
+// =====================================================
 
 // create function to findRecipeCards
 const findRecipeCards = (event) => {
   event.preventDefault();
+  /////////////TO DO: TAKE INPUTS OF FIELDSET!
   const ingredientInput = document.querySelector("#ingredients-input");
   const ingredientSearch = ingredientInput.value;
   // take #ingredients-input values to search API for results
@@ -14,7 +20,6 @@ const findRecipeCards = (event) => {
       const recipes = res.data.hits;
       console.log(recipes);
       recipes.forEach((i) => createRecipeCard(i))
-   
     }
     )
   // // // account for filter options - OR TOGGLE RESULTS???
@@ -95,10 +100,53 @@ const createRecipeCard = (i) => {
   // // append .recipeCard to recipeBox
   recipeBox.appendChild(recipeCard);
 }
-  
+
+// =====================================================
+// additive form code from workshop with Soleil!
+const toggleButtonAbility = () => {
+  // creating elements and styling accordingly
+  console.log(fieldset.children.length);
+  if (fieldset.children.length >= 5) {
+    addButton.disabled = true;
+  } else {
+    addButton.disabled = false;
+  }
+}
+
+const removeInput = (event) => {
+  // prevent default
+  event.preventDefault();
+  // remove the parent node
+  event.target.parentNode.remove();
+  toggleButtonAbility();
+}
+
+const addInput = (event) => {
+  // preparing for selection / cancelling events
+  event.preventDefault();
+  toggleButtonAbility();
+  const inputContainer = document.createElement('div');
+  inputContainer.classList.add('input-container');
+
+  const input = document.createElement('input');
+  input.type = "text";
+
+  const button = document.createElement('button');
+  button.innerText = "-";
+  button.addEventListener('click', removeInput);
+
+  // append our elements to the container
+  inputContainer.append(input, button);
+  // append our container to our fieldset
+  fieldset.appendChild(inputContainer);
+}
+
+addButton.addEventListener('click', addInput);
+document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
+// =====================================================
+
 // addEventListener on 'submit' to #submit to findRecipeCards
 const button = document.querySelector('#submit');
 button.addEventListener('click', findRecipeCards);
-// addEventListener on [ENTER] to #ingredients-input to append value to ingredientsList?
 
 // // Back to Top function?

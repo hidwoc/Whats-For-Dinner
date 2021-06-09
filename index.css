@@ -29,6 +29,7 @@ h2 {
 }
 
 /* FORM */
+/* TODO: CHANGE THIS TO FIELDSET AND ADJUST CSS */
 .form-container {
   display: flex;
   flex-direction: column;
