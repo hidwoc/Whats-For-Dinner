@@ -1,6 +1,6 @@
 /* ENTIRE PAGE */
 body {
-  font-family:;
+  /* font-family:; */
   /* IMPORT FONT */
   margin: 0;
 }
@@ -31,9 +31,9 @@ h1 {
   margin: 10px;
 }
 
-#submit {
+/* #submit {
 
-}
+} */
 
 /* RECIPES */
 #recipe-box {
@@ -65,9 +65,9 @@ h1 {
   grid-area: I;
 }
 
-.recipeCard>summary {
-  
-}
+/* .recipeCard>summary {
+
+} */
 
 .energy {
   grid-area: E;

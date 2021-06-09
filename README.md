@@ -284,7 +284,7 @@ https://api.edamam.com/search
 | | | Add single serving calculator | |
 ## Timeframes
 | Component | Priority | Estimated Time | Actual Time |
-| --- | --- |  --- | --- | --- |
+| --- | --- |  --- | --- |
 | Initial HTML setup | H | 2hrs| 45min |
 | CSS for basic layout | M | 3hrs| 1hr |
 | Axios set up | H | 3hrs| 1hr 15min |
