@@ -97,8 +97,8 @@ const createRecipeCard = (i) => {
 }
   
 // addEventListener on 'submit' to #submit to findRecipeCards
-const form = document.querySelector('.form-container');
-form.addEventListener('submit', findRecipeCards);
+const button = document.querySelector('#submit');
+button.addEventListener('click', findRecipeCards);
 // addEventListener on [ENTER] to #ingredients-input to append value to ingredientsList?
 
 // // Back to Top function?

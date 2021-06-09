@@ -18,15 +18,26 @@
     <h3>Tell us what you have and we'll show you what's good!</h3>
     <!--OPT: "and what's important to you" -->
   </header>
-  <div>
+  <!-- <div>
     <form class="form-container">
-      <!-- <fieldset> for multiple items?
-        JS: [ENTER] adds to ingredients list. Moves up from ingredients-input 
-        [SUBMIT] take ingredients list, filters, and searches for recipes-->
       <input type="text" id="ingredients-input" name="ingredient" placeholder="What's in your kitchen?" autocomplete=off>
       <input type="submit" id="submit" value="Find me recipes">
     </form>
-  </div>
+  </div> -->
+  <!-- <fieldset> for multiple items?
+     JS: [ENTER] adds to ingredients list. Moves up from ingredients-input 
+     [SUBMIT] take ingredients list, filters, and searches for recipes-->
+  <form>
+    <fieldset>
+      <div class="input-container">
+        <label for="ingredients-input">What's in your kitchen?</label>
+        <input type="text" id="ingredients-input" name="ingredient" autocomplete=off>
+        <button>-</button>
+      </div>
+    </fieldset>
+    <button id="add">+</button>
+    <button type="submit" id="submit">Find me recipes!</button>
+  </form>
   <!-- <div class="filter-container">
     <label class="switch">
       <input type="checkbox">
