@@ -31,10 +31,10 @@ const createRecipeCard = (i) => {
 
   // // create h4 element and assign it i.recipe.label
   const label = document.createElement('h4');
-  label.innerText = i.recipe.label;
   // // // account for "recipe" in label and remove?
   // // create anchor element and assign its href to i.recipe.url
   const labelLink = document.createElement('a');
+  labelLink.innerText = i.recipe.label;
   labelLink.href = i.recipe.url
   // // make sure this opens to blank webpage
   labelLink.setAttribute("target", "_blank");
@@ -44,6 +44,7 @@ const createRecipeCard = (i) => {
   // // create img element and assign its src to i.recipe.image
   const recipeImg = document.createElement('img');
   recipeImg.src = i.recipe.image;
+  // // // DEFAULT PIC IN CASE OF NO PIC!
 
   // // create details element and set innerText to i.recipe.ingredientLines
   const recipeIngredients = document.createElement('details');
