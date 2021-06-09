@@ -31,7 +31,7 @@ const createRecipeCard = (i) => {
 
   // // create h4 element and assign it i.recipe.label
   const label = document.createElement('h4');
-  label.value = i.recipe.label;
+  label.innerText = i.recipe.label;
   // // // account for "recipe" in label and remove?
   // // create anchor element and assign its href to i.recipe.url
   const labelLink = document.createElement('a');
