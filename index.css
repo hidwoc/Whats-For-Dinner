@@ -1,12 +1,24 @@
 /* FONTS
 HEADER: font-family: 'Fredericka the Great', cursive;
-REGULAR: font-family: 'Josefin Slab', serif; */
+REGULAR: font-family: 'Josefin Slab', serif; 
+*/
+
+/* COLOR PALETTE
+CHARLESTON GREEN #232726 
+BLACK OLIVE #43433F
+Russian Green #749264
+Yellow Green #9CD13D
+Tea Green #CCE8AB
+Carnation Pink #FAA8C4
+*/
 
 /* ENTIRE PAGE */
 body {
   margin: 0;
   height: 100vh;
   font-family: 'Josefin Slab', serif;
+  background-color: #43433F;
+  color: #FAA8C4;
 }
 
 /* HEADER */
@@ -17,6 +29,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
+  margin: 15px;
 }
 
 h1 {
@@ -29,8 +42,40 @@ h2 {
 }
 
 /* FORM */
-/* TODO: CHANGE THIS TO FIELDSET AND ADJUST CSS */
-.form-container {
+label {
+  margin: 15px;
+  font-weight: bold;
+  display: block;
+}
+/*=====================================================
+additive form code from workshop with Soleil!*/
+button, fieldset {
+  border-radius: 6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form button {
+  width: 204px;
+  background: black;
+  color: white;
+  font-size: 16px;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container button {
+  width: 22px;
+}
+/*=====================================================*/
+/* fieldset {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +84,7 @@ h2 {
 
 #ingredients-input {
   margin: 10px;
-}
+} */
 
 /* #submit {
 
@@ -68,7 +113,10 @@ h2 {
   box-sizing: border-box;
   padding: 10px;
   margin: 25px;
-  border: 1px solid green;
+  border: 1px solid #749264;
+  border-radius: 5%;
+  background-color: #CCE8AB;
+  color: #232726 ;
 }
 
 .recipeCard h4 {
@@ -82,11 +130,13 @@ h2 {
 h4 a {
   text-decoration: none;
   justify-content: center;
+  color: #232726;
 }
 
 h4 a:hover {
   text-decoration: underline;
   font-weight: bold;
+  color: #FAA8C4;
 }
 
 .recipeCard img {
@@ -122,8 +172,8 @@ h4 a:hover {
 }
 /* FOOTER */
 footer {
-
   bottom: 0;
   width: 100vw;
   text-align: center;
+  margin: 10px;
 }

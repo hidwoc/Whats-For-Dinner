@@ -67,7 +67,7 @@ const createRecipeCard = (i) => {
   // // assign innerText = `Energy: ${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`
   const bigE = i.recipe.totalNutrients.ENERC_KCAL.quantity;
   const smallE = bigE.toFixed(2);
-  energy.innerText = `Energy: ${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`;
+  energy.innerText = `Energy\n${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`;
   
   // // create p element with class .protein
   const protein = document.createElement("p");
@@ -75,7 +75,7 @@ const createRecipeCard = (i) => {
   // // assign innerText = `Protein: ${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`
   const bigP = i.recipe.totalNutrients.PROCNT.quantity;
   const smallP = bigP.toFixed(2);
-  protein.innerText = `Protein: ${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`;
+  protein.innerText = `Protein\n${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`;
   
   // // create p element with class .fat
   const fat = document.createElement("p");
@@ -83,7 +83,7 @@ const createRecipeCard = (i) => {
   // // assign innerText = `Fat: ${smallF} ${i.recipe.totalNutrients.FAT.unit}`
   const bigF = i.recipe.totalNutrients.FAT.quantity;
   const smallF = bigF.toFixed(2);
-  fat.innerText = `Fat: ${smallF} ${i.recipe.totalNutrients.FAT.unit}`;
+  fat.innerText = `Fat\n${smallF} ${i.recipe.totalNutrients.FAT.unit}`;
   
   // // create p element with class .carbs
   const carbs = document.createElement("p");
@@ -91,7 +91,7 @@ const createRecipeCard = (i) => {
   // // assign innerText = `Carbs: ${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`
   const bigC = i.recipe.totalNutrients.CHOCDF.quantity;
   const smallC = bigC.toFixed(2);
-  carbs.innerText = `Carbs: ${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`;
+  carbs.innerText = `Carbs\n${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`;
   // // // might also consider totalDaily for percentage of daily intake rather than straight numbers from totalNutrients???
   // // // in which case I should definitely calculate for a SINGLE SERVING
   
