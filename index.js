@@ -9,6 +9,11 @@ const addButton = document.querySelector('#add');
 // create function to findRecipeCards
 const findRecipeCards = (event) => {
   event.preventDefault();
+
+  // empty recipeBox of previous search results
+  if (recipeBox != null) {
+    recipeBox.innerHTML = '';
+  }
   /////////////TO DO: TAKE INPUTS OF FIELDSET!
   const ingredientInput = document.querySelector("#ingredients-input");
   const ingredientSearch = ingredientInput.value;
@@ -22,6 +27,7 @@ const findRecipeCards = (event) => {
       recipes.forEach((i) => createRecipeCard(i))
     }
     )
+  console.log(url);
   // // // account for filter options - OR TOGGLE RESULTS???
   // clear #ingredients-input box
   ingredientInput.value = "";
