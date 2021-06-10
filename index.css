@@ -1,14 +1,18 @@
 /* FONTS
-HEADER: font-family: 'Fredericka the Great', cursive;
-REGULAR: font-family: 'Josefin Slab', serif; 
+HEADER: font-family: 'Gochi Hand', cursive;
+REGULAR: font-family: 'Roboto', sans-serif;
 */
 
 /* COLOR PALETTE
 CHARLESTON GREEN #232726 
 BLACK OLIVE #43433F
+Ebony #505749
+Ebony #5C6B52
 Russian Green #749264
 Yellow Green #9CD13D
 Tea Green #CCE8AB
+Tea Green #D2E0AF
+Desert Sand E3C8B8
 Carnation Pink #FAA8C4
 */
 
@@ -16,36 +20,46 @@ Carnation Pink #FAA8C4
 body {
   margin: 0;
   height: 100vh;
-  font-family: 'Josefin Slab', serif;
-  background-color: #43433F;
-  color: #FAA8C4;
+  font-family: 'Roboto', sans-serif;
+  background-color: #CCE8AB;
+  color: #232726;
 }
 
 /* HEADER */
 header {
-  width: 30vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  box-sizing: border-box;
+  width: 100vw;
   margin: 15px;
+  display: grid;
+  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(7, 1fr) ;
+  grid-template-areas:
+    "H H H I I I F"
+    "H H H I I I F"
+    "H H H I I I F"
+}
+
+#title {
+  width: 30vw;
+  grid-area: H;
 }
 
 h1 {
   text-align: center;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Gochi Hand', cursive;
+  width: 30vw;
 }
 
 h2 {
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Gochi Hand', cursive;
 }
+
 
 /* FORM */
 label {
   margin: 15px;
   font-weight: bold;
   display: block;
+  font-family: 'Gochi Hand', cursive;
 }
 /*=====================================================
 additive form code from workshop with Soleil!*/
@@ -54,6 +68,7 @@ button, fieldset {
 }
 
 form {
+  grid-area: I;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,10 +100,21 @@ form button {
 #ingredients-input {
   margin: 10px;
 } */
+#add {
+  font-family: 'Roboto', sans-serif;
+  margin: 5px;
+}
 
-/* #submit {
+#submit {
+  font-family: 'Roboto', sans-serif;
+  margin: 5px;
+  background-color: #FAA8C4;
+}
 
-} */
+#subtract {
+  font-family: 'Roboto', sans-serif;
+  margin: 5px;
+}
 
 /* RECIPES */
 #recipe-box {
@@ -101,7 +127,7 @@ form button {
   display: grid;
   /* grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 1fr 2fr; */
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: .5fr .5fr .5fr .5fr .5fr .5fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "label label label"
@@ -115,8 +141,9 @@ form button {
   margin: 25px;
   border: 1px solid #749264;
   border-radius: 5%;
-  background-color: #CCE8AB;
-  color: #232726 ;
+  background-color: #505749;
+  color: #D2E0AF;
+  font-size: 15px;
 }
 
 .recipeCard h4 {
@@ -124,13 +151,14 @@ form button {
   grid-column: 1 / 3; */
   grid-area: label;
   justify-self: center;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Gochi Hand', cursive;
+  font-size: 30px;
 }
 
 h4 a {
   text-decoration: none;
   justify-content: center;
-  color: #232726;
+  color: #D2E0AF;
 }
 
 h4 a:hover {
