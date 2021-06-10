@@ -10,7 +10,7 @@ const addButton = document.querySelector('#add');
 const findRecipeCards = (event) => {
   event.preventDefault();
 
-  // empty recipeBox of previous search results
+  // clear recipeBox of previous search results
   if (recipeBox != null) {
     recipeBox.innerHTML = '';
   }
@@ -27,7 +27,6 @@ const findRecipeCards = (event) => {
       recipes.forEach((i) => createRecipeCard(i))
     }
     )
-  console.log(url);
   // // // account for filter options - OR TOGGLE RESULTS???
   // clear #ingredients-input box
   ingredientInput.value = "";

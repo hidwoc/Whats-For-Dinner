@@ -126,7 +126,7 @@ form button {
 .recipeCard {
   display: grid;
   grid-template-rows: .5fr .5fr .5fr .5fr .5fr .5fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: .5fr 1fr 1fr;
   grid-template-areas:
     "label label label"
     "E IMG IMG"
@@ -137,7 +137,7 @@ form button {
   box-sizing: border-box;
   padding: 10px;
   margin: 25px;
-  border: 1px solid #749264;
+  border: 1px solid #232726 ;
   border-radius: 5%;
   background-color: #505749;
   color: #D2E0AF;
@@ -170,11 +170,14 @@ h4 a:hover {
   grid-column: 2 / 3; */
   grid-area: IMG;
   object-fit: cover;
+  justify-self: center;
+  margin: 2px;
 }
 
 .recipeCard details {
   grid-area: I;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 /* .recipeCard>summary {
@@ -202,4 +205,36 @@ footer {
   width: 100vw;
   text-align: center;
   margin: 10px;
+}
+
+@media screen and (max-width: 850px) {
+  #recipe-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+  }
+  
+  .recipeCard {
+    justify-self: center;
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "label label label"
+      "IMG IMG IMG"
+      "IMG IMG IMG"
+      "IMG IMG IMG"
+      "E . P"
+      "F . C"
+      "I I I";
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 80vw;
+    border: 1px solid #232726 ;
+    border-radius: 5%;
+    background-color: #505749;
+    color: #D2E0AF;
+    font-size: 25px;
+    justify-content: center;
+  }
 }
