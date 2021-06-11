@@ -68,7 +68,6 @@ const findRecipeCards = (event) => {
   const ingredients = Array.from(inputs).map((input) => input.value);
 
   const ingredientSearch = ingredients.join(' ');
-  console.log(ingredientSearch);
   // take input values to search API for results
   const url = `https://api.edamam.com/search?q=${ingredientSearch}&app_id=610593b2&app_key=c3fe8717d94ed5f74e0c0bce360bb3ca`
   
@@ -76,7 +75,7 @@ const findRecipeCards = (event) => {
     .then((res) => {
       // declare variable recipes = results.data.hits
       const recipes = res.data.hits;
-      console.log(recipes);
+
       if (recipes.length === 0) {
         noRecipesFound();
       } else {
@@ -87,8 +86,6 @@ const findRecipeCards = (event) => {
   // // // account for filter options - OR TOGGLE RESULTS???
   // clear #ingredients-input box
   fieldset.innerHTML = '';
-  addInput();
-  //// WHY THIS NO WORKY WORK
 }
 
 
@@ -170,9 +167,13 @@ const createRecipeCard = (i) => {
 addButton.addEventListener('click', addInput);
 document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
 // =====================================================
+// fieldset.addEventListener('', addInput);
+  //// WHY THIS NO WORKY WORK
 
 // addEventListener on 'submit' to #submit to findRecipeCards
 const button = document.querySelector('#submit');
-button.addEventListener('click', findRecipeCards);
+button.addEventListener('click', (e) => {
+  findRecipeCards(e);
+  addInput(e)});
 
 // // Back to Top function?

@@ -141,8 +141,6 @@ input {
 }
 
 .recipeCard h4 {
-  /* grid-row: 1 / 2;
-  grid-column: 1 / 3; */
   grid-area: label;
   justify-self: center;
   font-family: 'Gochi Hand', cursive;
