@@ -75,7 +75,7 @@ const findRecipeCards = (event) => {
     .then((res) => {
       // declare variable recipes = results.data.hits
       const recipes = res.data.hits;
-
+      console.log(recipes);
       if (recipes.length === 0) {
         noRecipesFound();
       } else {
@@ -109,7 +109,11 @@ const createRecipeCard = (i) => {
 
   // // create img element and assign its src to i.recipe.image
   const recipeImg = document.createElement('img');
-  recipeImg.src = i.recipe.image;
+  try {
+    recipeImg.src = i.recipe.image;
+  } catch (error) {
+    recipeImg.src = "http://clipart-library.com/newhp/80-800892_recipe-cooking-clip-art-learn-to-cook-.png"
+  }
   // // // DEFAULT PIC IN CASE OF NO PIC!
 
   // // create details element and set innerText to i.recipe.ingredientLines
