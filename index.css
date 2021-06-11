@@ -163,6 +163,7 @@ h4 a:hover {
   grid-area: IMG;
   object-fit: cover;
   justify-self: center;
+  align-items: center;
   margin: 2px;
 }
 

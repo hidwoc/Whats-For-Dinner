@@ -7,6 +7,7 @@ const fieldset = document.querySelector('fieldset');
 const addButton = document.querySelector('#add');
 // =====================================================
 
+
 const toggleButtonAbility = () => {
   // creating elements and styling accordingly
   if (fieldset.children.length >= 5) {
@@ -30,17 +31,17 @@ const addInput = (event) => {
   toggleButtonAbility();
   const inputContainer = document.createElement('div');
   inputContainer.classList.add('input-container');
-
+  
   const input = document.createElement('input');
   input.type = "text";
   input.name = "ingredient";
   input.autocomplete = "off";
-
+  
   const button = document.createElement('button');
   button.className = "subtract";
   button.innerText = "-";
   button.addEventListener('click', removeInput);
-
+  
   // append our elements to the container
   inputContainer.append(input, button);
   // append our container to our fieldset
@@ -66,23 +67,23 @@ const findRecipeCards = (event) => {
   const inputs = document.querySelectorAll("input");
   // Array.from() // https://stackoverflow.com/questions/32765157/filter-or-map-nodelists-in-es6
   const ingredients = Array.from(inputs).map((input) => input.value);
-
+  
   const ingredientSearch = ingredients.join(' ');
   // take input values to search API for results
   const url = `https://api.edamam.com/search?q=${ingredientSearch}&app_id=610593b2&app_key=c3fe8717d94ed5f74e0c0bce360bb3ca`
   
   axios.get(url)
-    .then((res) => {
-      // declare variable recipes = results.data.hits
-      const recipes = res.data.hits;
-      console.log(recipes);
-      if (recipes.length === 0) {
-        noRecipesFound();
-      } else {
-        recipes.forEach((i) => createRecipeCard(i));
-      }
+  .then((res) => {
+    // declare variable recipes = results.data.hits
+    const recipes = res.data.hits;
+    console.log(recipes);
+    if (recipes.length === 0) {
+      noRecipesFound();
+    } else {
+      recipes.forEach((i) => createRecipeCard(i));
     }
-    )
+  }
+  )
   // // // account for filter options - OR TOGGLE RESULTS???
   // clear #ingredients-input box
   fieldset.innerHTML = '';
@@ -94,7 +95,7 @@ const createRecipeCard = (i) => {
   // // create div element with class .recipeCard
   const recipeCard = document.createElement('div');
   recipeCard.className = 'recipeCard';
-
+  
   // // create h4 element and assign it i.recipe.label
   const label = document.createElement('h4');
   // // // account for "recipe" in label and remove?
@@ -106,15 +107,17 @@ const createRecipeCard = (i) => {
   labelLink.setAttribute("target", "_blank");
   // // append anchor element to h4
   label.appendChild(labelLink);
-
+  
   // // create img element and assign its src to i.recipe.image
   const recipeImg = document.createElement('img');
-  try {
-    recipeImg.src = i.recipe.image;
-  } catch (error) {
-    recipeImg.src = "http://clipart-library.com/newhp/80-800892_recipe-cooking-clip-art-learn-to-cook-.png"
-  }
+  recipeImg.src = i.recipe.image;
   // // // DEFAULT PIC IN CASE OF NO PIC!
+  const setDefaultPic = () => {
+    recipeImg.src = "https://thumbs.dreamstime.com/b/cute-stick-figure-chef-cooking-recipe-lineart-icon-dinner-preparation-pictogram-communication-restaurant-meal-illustration-186228511.jpg";
+    recipeImg.width = "300";
+  }
+
+  recipeImg.onerror = setDefaultPic; 
 
   // // create details element and set innerText to i.recipe.ingredientLines
   const recipeIngredients = document.createElement('details');
