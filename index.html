@@ -17,15 +17,16 @@
       <h1>What's For Dinner?</h1>
       <h2>A recipe developer for the health-conscious yet under-prepared home cook.</h2>
       <h3>Tell us what you have and we'll show you what you can make with it!</h3>
+      <!--OPT: "and what's important to you" -->
     </div>
     <!-- ===================================================== -->
     <!-- additive form code from workshop with Soleil! -->
     <form>
+      <label form="input-container">What's in your kitchen?</label>
       <fieldset>
-        <label form="input-container">What's in your kitchen?</label>
         <div class="input-container">
           <!-- <textarea id="ingredients-input" name="ingredients" rows="5"></textarea> -->
-          <input type="text" id="ingredients-input" name="ingredient" autocomplete=off>
+          <input type="text" id="ingredients-input" name="ingredient">
           <button id="subtract">-</button>
        </div>
       </fieldset>
@@ -33,15 +34,6 @@
       <button type="submit" id="submit">Find me recipes!</button>
     </form> 
     <!-- ===================================================== -->
-    <!--OPT: "and what's important to you" -->
-    <!-- code from todo-list-form-vanilla-js solution -->
-    <!-- <section>
-      <ul class="input-container"></ul>
-      <form>
-          <input type='text' id='ingredients-input' />
-          <button type="submit" id="submit">Find me recipes!</button>
-      </form>
-    </section> -->
   </header>
   <!-- <div>
     <form class="form-container">

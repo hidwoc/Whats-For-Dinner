@@ -1,19 +1,54 @@
 // declare global variable recipeBox for container recipes will be appended to
 const recipeBox = document.querySelector("#recipe-box");
+
 // =====================================================
 // additive form code from workshop with Soleil!
 const fieldset = document.querySelector('fieldset');
 const addButton = document.querySelector('#add');
 // =====================================================
-// // code from todo-list-form-vanilla-js solution
-// const input = document.querySelector('#ingredients-input')
-// const toDoButton = document.querySelector('#submit')
-// const todoList = document.querySelector('.inputs-container')
-// //======================================================
+
+const toggleButtonAbility = () => {
+  // creating elements and styling accordingly
+  if (fieldset.children.length >= 5) {
+    addButton.disabled = true;
+  } else {
+    addButton.disabled = false;
+  }
+}
+
+const removeInput = (event) => {
+  // prevent default
+  event.preventDefault();
+  // remove the parent node
+  event.target.parentNode.remove();
+  toggleButtonAbility();
+}
+
+const addInput = (event) => {
+  // preparing for selection / cancelling events
+  event.preventDefault();
+  toggleButtonAbility();
+  const inputContainer = document.createElement('div');
+  inputContainer.classList.add('input-container');
+
+  const input = document.createElement('input');
+  input.type = "text";
+
+  const button = document.createElement('button');
+  button.className = "subtract";
+  button.innerText = "-";
+  button.addEventListener('click', removeInput);
+
+  // append our elements to the container
+  inputContainer.append(input, button);
+  // append our container to our fieldset
+  fieldset.appendChild(inputContainer);
+}
 
 // create function in case of no recipes found
 const noRecipesFound = () => {
   const tryAgain = document.createElement('h2');
+  tryAgain.className = "no-recipes";
   tryAgain.innerText = "No Recipes Found :("
   recipeBox.append(tryAgain);
 }
@@ -25,12 +60,16 @@ const findRecipeCards = (event) => {
   if (recipeBox != null) {
     recipeBox.innerHTML = '';
   }
-  /////////////TO DO: TAKE INPUTS OF FIELDSET!
-  const ingredientInput = document.querySelector("#ingredients-input");
-  const ingredientSearch = ingredientInput.value;
-  // take #ingredients-input values to search API for results
+  // take input of fieldset
+  const inputs = document.querySelectorAll("input");
+  // Array.from() // https://stackoverflow.com/questions/32765157/filter-or-map-nodelists-in-es6
+  const ingredients = Array.from(inputs).map((input) => input.value);
+
+  const ingredientSearch = ingredients.join(' ');
+  console.log(ingredientSearch);
+  // take input values to search API for results
   const url = `https://api.edamam.com/search?q=${ingredientSearch}&app_id=610593b2&app_key=c3fe8717d94ed5f74e0c0bce360bb3ca`
-  console.log(url);
+  
   axios.get(url)
     .then((res) => {
       // declare variable recipes = results.data.hits
@@ -45,7 +84,9 @@ const findRecipeCards = (event) => {
     )
   // // // account for filter options - OR TOGGLE RESULTS???
   // clear #ingredients-input box
-  ingredientInput.value = "";
+  fieldset.innerHTML = '';
+  addInput();
+  //// WHY THIS NO WORKY WORK
 }
 
 
@@ -124,71 +165,6 @@ const createRecipeCard = (i) => {
 
 // =====================================================
 // additive form code from workshop with Soleil!
-const toggleButtonAbility = () => {
-  // creating elements and styling accordingly
-  console.log(fieldset.children.length);
-  if (fieldset.children.length >= 5) {
-    addButton.disabled = true;
-  } else {
-    addButton.disabled = false;
-  }
-}
-
-const removeInput = (event) => {
-  // prevent default
-  event.preventDefault();
-  // remove the parent node
-  event.target.parentNode.remove();
-  toggleButtonAbility();
-}
-
-const addInput = (event) => {
-  // preparing for selection / cancelling events
-  event.preventDefault();
-  toggleButtonAbility();
-  const inputContainer = document.createElement('div');
-  inputContainer.classList.add('input-container');
-
-  const input = document.createElement('input');
-  input.type = "text";
-
-  const button = document.createElement('button');
-  button.className = "subtract";
-  button.innerText = "-";
-  button.addEventListener('click', removeInput);
-
-  // append our elements to the container
-  inputContainer.append(input, button);
-  // append our container to our fieldset
-  fieldset.appendChild(inputContainer);
-}
-// code from todo-list-form-vanilla-js solution
-// function handleSubmit(e) {
-//   e.preventDefault()
-//   let listItem = document.createElement('li')
-//   let pTag = document.createElement('p')
-//   pTag.innerText = input.value
-//   listItem.append(pTag)
-
-//   listItem.append(createDeleteButton())
-//   todoList.append(listItem)
-  
-//   input.value = ''
-// }
-
-// function createDeleteButton() {
-//   let deleteButton = document.createElement('button')
-//   deleteButton.innerText = 'delete'
-//   deleteButton.addEventListener('click', deleteListItem)
-//   return deleteButton
-// }
-
-// function deleteListItem() {
-//   this.parentNode.remove()
-// }
-
-// toDoButton.addEventListener('click', handleSubmit)
-
 addButton.addEventListener('click', addInput);
 document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
 // =====================================================
