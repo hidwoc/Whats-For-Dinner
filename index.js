@@ -92,26 +92,25 @@ const findRecipeCards = (event) => {
 
 // create function to createRecipeCard (to be used in .forEach())
 const createRecipeCard = (i) => {
-  // // create div element with class .recipeCard
+  // create div element with class .recipeCard
   const recipeCard = document.createElement('div');
   recipeCard.className = 'recipeCard';
   
-  // // create h4 element and assign it i.recipe.label
+  // create h4 element and assign it i.recipe.label
   const label = document.createElement('h4');
-  // // // account for "recipe" in label and remove?
-  // // create anchor element and assign its href to i.recipe.url
+  // create anchor element and assign its href to i.recipe.url
   const labelLink = document.createElement('a');
   labelLink.innerText = i.recipe.label;
   labelLink.href = i.recipe.url
-  // // make sure this opens to blank webpage
+  // make sure this opens to blank webpage
   labelLink.setAttribute("target", "_blank");
-  // // append anchor element to h4
+  // append anchor element to h4
   label.appendChild(labelLink);
   
-  // // create img element and assign its src to i.recipe.image
+  // create img element and assign its src to i.recipe.image
   const recipeImg = document.createElement('img');
   recipeImg.src = i.recipe.image;
-  // // // DEFAULT PIC IN CASE OF NO PIC!
+  // DEFAULT PIC IN CASE OF NO PIC!
   const setDefaultPic = () => {
     recipeImg.src = "https://thumbs.dreamstime.com/b/cute-stick-figure-chef-cooking-recipe-lineart-icon-dinner-preparation-pictogram-communication-restaurant-meal-illustration-186228511.jpg";
     recipeImg.width = "300";
@@ -119,54 +118,51 @@ const createRecipeCard = (i) => {
 
   recipeImg.onerror = setDefaultPic; 
 
-  // // create details element and set innerText to i.recipe.ingredientLines
+  // create details element and set innerText to i.recipe.ingredientLines
   const recipeIngredients = document.createElement('details');
   ingredientLines = i.recipe.ingredientLines;
   recipeIngredients.innerText = ingredientLines.join(' ');
-  // // create summary element, set innerText = "Ingredients"
+  // create summary element, set innerText = "Ingredients"
   const recipeIngredientsSummary = document.createElement('summary');
   recipeIngredientsSummary.innerText = "Ingredients";
-  // // append summary element to details element
+  // append summary element to details element
   recipeIngredients.appendChild(recipeIngredientsSummary);
-  // // // oof, this might be overkill. May have to switch tactics to focus on health/dietLabels
   
-  // // create p element with class .energy
+  // create p element with class .energy
   const energy = document.createElement("p");
   energy.className = "energy";
-  // // assign innerText = `Energy: ${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`
+  // assign innerText = `Energy: ${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`
   const bigE = i.recipe.totalNutrients.ENERC_KCAL.quantity;
   const smallE = bigE.toFixed(2);
   energy.innerText = `Energy\n${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`;
   
-  // // create p element with class .protein
+  // create p element with class .protein
   const protein = document.createElement("p");
   protein.className = "protein";
-  // // assign innerText = `Protein: ${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`
+  // assign innerText = `Protein: ${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`
   const bigP = i.recipe.totalNutrients.PROCNT.quantity;
   const smallP = bigP.toFixed(2);
   protein.innerText = `Protein\n${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`;
   
-  // // create p element with class .fat
+  // create p element with class .fat
   const fat = document.createElement("p");
   fat.className = "fat";
-  // // assign innerText = `Fat: ${smallF} ${i.recipe.totalNutrients.FAT.unit}`
+  // assign innerText = `Fat: ${smallF} ${i.recipe.totalNutrients.FAT.unit}`
   const bigF = i.recipe.totalNutrients.FAT.quantity;
   const smallF = bigF.toFixed(2);
   fat.innerText = `Fat\n${smallF} ${i.recipe.totalNutrients.FAT.unit}`;
   
-  // // create p element with class .carbs
+  // create p element with class .carbs
   const carbs = document.createElement("p");
   carbs.className = "carbs";
-  // // assign innerText = `Carbs: ${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`
+  // assign innerText = `Carbs: ${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`
   const bigC = i.recipe.totalNutrients.CHOCDF.quantity;
   const smallC = bigC.toFixed(2);
   carbs.innerText = `Carbs\n${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`;
-  // // // might also consider totalDaily for percentage of daily intake rather than straight numbers from totalNutrients???
-  // // // in which case I should definitely calculate for a SINGLE SERVING
   
-  // // append elements to recipeCard
+  // append elements to recipeCard
   recipeCard.append(label,recipeImg,recipeIngredients,energy,protein,fat,carbs);
-  // // append .recipeCard to recipeBox
+  // append .recipeCard to recipeBox
   recipeBox.appendChild(recipeCard);
 }
 
@@ -175,8 +171,6 @@ const createRecipeCard = (i) => {
 addButton.addEventListener('click', addInput);
 document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
 // =====================================================
-// fieldset.addEventListener('', addInput);
-  //// WHY THIS NO WORKY WORK
 
 // addEventListener on 'submit' to #submit to findRecipeCards
 const button = document.querySelector('#submit');
