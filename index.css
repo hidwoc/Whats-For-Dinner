@@ -121,7 +121,7 @@ input {
 
 .recipeCard {
   display: grid;
-  grid-template-rows: .5fr .5fr .5fr .5fr .5fr .5fr;
+  grid-template-rows: 100px repeat(4, 55px) 100px;
   grid-template-columns: .5fr 1fr 1fr;
   grid-template-areas:
     "label label label"
@@ -143,6 +143,7 @@ input {
 .recipeCard h4 {
   grid-area: label;
   justify-self: center;
+  align-self: center;
   font-family: 'Gochi Hand', cursive;
   font-size: 30px;
 }
@@ -169,16 +170,25 @@ h4 a:hover {
 
 .recipeCard details {
   grid-area: I;
+  align-self: center;
   box-sizing: border-box;
+}
+
+.recipeCard>summary {
+}
+
+details[open] {
+  background-color: #E3C8B8;
+  color: #232726;
+  border: 1px ridge #232726;
+  border-radius: 5%;
   overflow-y: scroll;
 }
 
 .no-recipes {
   text-align: center;
 }
-/* .recipeCard>summary {
 
-}  */
 
 .energy {
   grid-area: E;
