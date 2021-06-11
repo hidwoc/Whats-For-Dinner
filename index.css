@@ -53,6 +53,7 @@ h2 {
   font-family: 'Gochi Hand', cursive;
 }
 
+
 /* FORM */
 label {
   margin: 15px;
@@ -81,6 +82,10 @@ form button {
   font-size: 16px;
 }
 
+input {
+  margin: 5px;
+}
+
 .input-container {
   display: flex;
 }
@@ -89,16 +94,6 @@ form button {
   width: 22px;
 }
 /*=====================================================*/
-/* fieldset {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-}
-
-#ingredients-input {
-  margin: 10px;
-} */
 #add {
   font-family: 'Roboto', sans-serif;
   margin: 5px;
@@ -114,6 +109,7 @@ form button {
   font-family: 'Roboto', sans-serif;
   margin: 5px;
 }
+
 
 /* RECIPES */
 #recipe-box {
@@ -166,8 +162,6 @@ h4 a:hover {
 }
 
 .recipeCard img {
-  /* grid-row: 2 / 4;
-  grid-column: 2 / 3; */
   grid-area: IMG;
   object-fit: cover;
   justify-self: center;
@@ -202,6 +196,7 @@ h4 a:hover {
 .carbs {
   grid-area: C;
 }
+
 /* FOOTER */
 footer {
   bottom: 0;
@@ -210,6 +205,7 @@ footer {
   margin: 10px;
 }
 
+/* MEDIA QUERIES */
 @media screen and (max-width: 850px) {
   header {
     width: 100vw;

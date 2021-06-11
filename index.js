@@ -33,6 +33,8 @@ const addInput = (event) => {
 
   const input = document.createElement('input');
   input.type = "text";
+  input.name = "ingredient";
+  input.autocomplete = "off";
 
   const button = document.createElement('button');
   button.className = "subtract";
