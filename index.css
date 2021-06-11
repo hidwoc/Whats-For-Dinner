@@ -34,8 +34,8 @@ header {
   grid-template-columns: repeat(7, 1fr) ;
   grid-template-areas:
     "H H H I I I F"
-    "H H H I I I F"
-    "H H H I I I F"
+    "B B B I I I F"
+    "C C C I I I F"
 }
 
 #title {
@@ -44,15 +44,23 @@ header {
 }
 
 h1 {
+  grid-area: H;
+  width: 30vw;
   text-align: center;
   font-family: 'Gochi Hand', cursive;
   width: 30vw;
 }
 
 h2 {
+  grid-area: B;
+  width: 30vw;
   font-family: 'Gochi Hand', cursive;
 }
 
+h3 {
+  grid-area: C;
+  width: 30vw;
+}
 
 /* FORM */
 label {
@@ -73,6 +81,8 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  margin: 10px;
 }
 
 form button {
@@ -166,6 +176,8 @@ h4 a:hover {
   justify-self: center;
   align-items: center;
   margin: 2px;
+  border: 10px ridge #5C6B52;
+  border-radius: 2%;
 }
 
 .recipeCard details {
@@ -215,55 +227,63 @@ footer {
 }
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   header {
     width: 100vw;
-    margin: 15px;
-    grid-template-rows: repeat(3, 25vh);
-    grid-template-columns: repeat(3, 1fr) ;
+    margin: 15px 15px 0px;
+    grid-template-rows: .35fr 1fr .6fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "H H H"
-      "I I I"
-      "I I I";
-  }
-
-  #title {
-    width: 100vw;
+      "B I I"
+      "C I I";
   }
 
   h1 {
     width: 100vw;
+    grid-area: H;
     margin: 5vh 0 0;
   }
 
   h2 {
+    grid-area: B;
     justify-content: center;
   }
 
   h3 {
-
+    grid-area: C;
   }
+
+  fieldset {
+    width: 40vw;
+  }
+
+  .input-container {
+    justify-content: center;
+  }
+
   #recipe-box {
+    margin: 0;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(10, 95vh);
+    box-sizing: border-box;
   }
   
   .recipeCard {
     justify-self: center;
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: .1fr 3fr .2fr .2fr 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       "label label"
-      "IMG IMG"
       "IMG IMG"
       "E P"
       "F C"
       "I I";
     box-sizing: border-box;
-    padding: 10px;
-    max-width: 80vw;
+    width: 90vw;
+    margin: 10px;
     border: 1px solid #232726 ;
     border-radius: 5%;
     background-color: #505749;
@@ -271,4 +291,22 @@ footer {
     font-size: 25px;
     justify-content: center;
   }
+
+  h4 {
+    text-decoration: underline;
+    justify-content: center;
+    margin: 10px;
+  }
+  h4 a {
+    color: #FAA8C4
+  }
+
+  p {
+    margin: 5px;
+    font-size: .8em;
+  }
+  details {
+    font-size: .8em;
+  }
+
 }
