@@ -5,11 +5,22 @@ const recipeBox = document.querySelector("#recipe-box");
 const fieldset = document.querySelector('fieldset');
 const addButton = document.querySelector('#add');
 // =====================================================
+// // code from todo-list-form-vanilla-js solution
+// const input = document.querySelector('#ingredients-input')
+// const toDoButton = document.querySelector('#submit')
+// const todoList = document.querySelector('.inputs-container')
+// //======================================================
+
+// create function in case of no recipes found
+const noRecipesFound = () => {
+  const tryAgain = document.createElement('h2');
+  tryAgain.innerText = "No Recipes Found :("
+  recipeBox.append(tryAgain);
+}
 
 // create function to findRecipeCards
 const findRecipeCards = (event) => {
   event.preventDefault();
-
   // clear recipeBox of previous search results
   if (recipeBox != null) {
     recipeBox.innerHTML = '';
@@ -19,12 +30,17 @@ const findRecipeCards = (event) => {
   const ingredientSearch = ingredientInput.value;
   // take #ingredients-input values to search API for results
   const url = `https://api.edamam.com/search?q=${ingredientSearch}&app_id=610593b2&app_key=c3fe8717d94ed5f74e0c0bce360bb3ca`
+  console.log(url);
   axios.get(url)
     .then((res) => {
       // declare variable recipes = results.data.hits
       const recipes = res.data.hits;
       console.log(recipes);
-      recipes.forEach((i) => createRecipeCard(i))
+      if (recipes.length === 0) {
+        noRecipesFound();
+      } else {
+        recipes.forEach((i) => createRecipeCard(i));
+      }
     }
     )
   // // // account for filter options - OR TOGGLE RESULTS???
@@ -137,6 +153,7 @@ const addInput = (event) => {
   input.type = "text";
 
   const button = document.createElement('button');
+  button.className = "subtract";
   button.innerText = "-";
   button.addEventListener('click', removeInput);
 
@@ -145,6 +162,32 @@ const addInput = (event) => {
   // append our container to our fieldset
   fieldset.appendChild(inputContainer);
 }
+// code from todo-list-form-vanilla-js solution
+// function handleSubmit(e) {
+//   e.preventDefault()
+//   let listItem = document.createElement('li')
+//   let pTag = document.createElement('p')
+//   pTag.innerText = input.value
+//   listItem.append(pTag)
+
+//   listItem.append(createDeleteButton())
+//   todoList.append(listItem)
+  
+//   input.value = ''
+// }
+
+// function createDeleteButton() {
+//   let deleteButton = document.createElement('button')
+//   deleteButton.innerText = 'delete'
+//   deleteButton.addEventListener('click', deleteListItem)
+//   return deleteButton
+// }
+
+// function deleteListItem() {
+//   this.parentNode.remove()
+// }
+
+// toDoButton.addEventListener('click', handleSubmit)
 
 addButton.addEventListener('click', addInput);
 document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
