@@ -7,7 +7,6 @@ const fieldset = document.querySelector('fieldset');
 const addButton = document.querySelector('#add');
 // =====================================================
 
-
 const toggleButtonAbility = () => {
   // creating elements and styling accordingly
   if (fieldset.children.length >= 5) {
@@ -29,23 +28,29 @@ const addInput = (event) => {
   // preparing for selection / cancelling events
   event.preventDefault();
   toggleButtonAbility();
-  const inputContainer = document.createElement('div');
-  inputContainer.classList.add('input-container');
   
-  const input = document.createElement('input');
-  input.type = "text";
-  input.name = "ingredient";
-  input.autocomplete = "off";
-  
-  const button = document.createElement('button');
-  button.className = "subtract";
-  button.innerText = "-";
-  button.addEventListener('click', removeInput);
-  
-  // append our elements to the container
-  inputContainer.append(input, button);
-  // append our container to our fieldset
-  fieldset.appendChild(inputContainer);
+  if (fieldset.children.length <= 5) {
+    
+    const inputContainer = document.createElement('div');
+    inputContainer.classList.add('input-container');
+    
+    const input = document.createElement('input');
+    input.type = "text";
+    input.name = "ingredient";
+    input.autocomplete = "off";
+    input.autofocus = true;
+    
+    const button = document.createElement('button');
+    button.className = "subtract";
+    button.innerText = "-";
+    
+    button.addEventListener('click', removeInput);
+    
+    // append our elements to the container
+    inputContainer.append(input, button);
+    // append our container to our fieldset
+    fieldset.appendChild(inputContainer);
+  } 
 }
 
 // create function in case of no recipes found
@@ -115,9 +120,9 @@ const createRecipeCard = (i) => {
     recipeImg.src = "https://thumbs.dreamstime.com/b/cute-stick-figure-chef-cooking-recipe-lineart-icon-dinner-preparation-pictogram-communication-restaurant-meal-illustration-186228511.jpg";
     recipeImg.width = "300";
   }
-
+  
   recipeImg.onerror = setDefaultPic; 
-
+  
   // create details element and set innerText to i.recipe.ingredientLines
   const recipeIngredients = document.createElement('details');
   ingredientLines = i.recipe.ingredientLines;
@@ -166,16 +171,15 @@ const createRecipeCard = (i) => {
   recipeBox.appendChild(recipeCard);
 }
 
-// =====================================================
-// additive form code from workshop with Soleil!
+
 addButton.addEventListener('click', addInput);
-document.querySelector('form').addEventListener('submit', (e) => e.preventDefault());
-// =====================================================
+// addInput when enter is hit
+document.querySelector('form').addEventListener('submit', addInput);
 
 // addEventListener on 'submit' to #submit to findRecipeCards
 const button = document.querySelector('#submit');
 button.addEventListener('click', (e) => {
   findRecipeCards(e);
   addInput(e)});
-
-// // Back to Top function?
+  
+  // // Back to Top function?
