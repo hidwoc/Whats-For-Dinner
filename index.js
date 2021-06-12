@@ -28,7 +28,6 @@ const addInput = (event) => {
   // preparing for selection / cancelling events
   event.preventDefault();
   toggleButtonAbility();
-  
   if (fieldset.children.length <= 5) {
     
     const inputContainer = document.createElement('div');
@@ -38,7 +37,6 @@ const addInput = (event) => {
     input.type = "text";
     input.name = "ingredient";
     input.autocomplete = "off";
-    input.autofocus = true;
     
     const button = document.createElement('button');
     button.className = "subtract";
@@ -50,6 +48,7 @@ const addInput = (event) => {
     inputContainer.append(input, button);
     // append our container to our fieldset
     fieldset.appendChild(inputContainer);
+    input.focus();
   } 
 }
 
