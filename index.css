@@ -192,9 +192,6 @@ h4 a:hover {
   box-sizing: border-box;
 }
 
-.recipeCard>summary {
-}
-
 details[open] {
   background-color: #E3C8B8;
   color: #232726;

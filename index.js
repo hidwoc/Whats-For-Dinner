@@ -1,6 +1,7 @@
 // declare global variable recipeBox for container recipes will be appended to
 const recipeBox = document.querySelector("#recipe-box");
 const noRecipes = document.querySelector(".no-recipes");
+
 // =====================================================
 // additive form code from workshop with Soleil!
 const fieldset = document.querySelector('fieldset');
@@ -28,6 +29,7 @@ const addInput = (event) => {
   // preparing for selection / cancelling events
   event.preventDefault();
   toggleButtonAbility();
+
   if (fieldset.children.length < 5) {
     
     const inputContainer = document.createElement('div');
@@ -55,34 +57,35 @@ const addInput = (event) => {
 // create function to findRecipeCards
 const findRecipeCards = (event) => {
   event.preventDefault();
+
   // clear recipeBox of previous search results
   if (recipeBox != null) {
     noRecipes.style.display = "none";
     recipeBox.innerHTML = '';
   }
+
   // take input of fieldset
   const inputs = document.querySelectorAll("input");
   // Array.from() // https://stackoverflow.com/questions/32765157/filter-or-map-nodelists-in-es6
   const ingredients = Array.from(inputs).map((input) => input.value);
-  
   const ingredientSearch = ingredients.join(' ');
+
   // take input values to search API for results
   const url = `https://api.edamam.com/search?q=${ingredientSearch}&app_id=610593b2&app_key=c3fe8717d94ed5f74e0c0bce360bb3ca`
   
   axios.get(url)
-  .then((res) => {
-    // declare variable recipes = results.data.hits
-    const recipes = res.data.hits;
-    console.log(recipes);
-    if (recipes.length === 0) {
-      // noRecipesFound();
-      noRecipes.style.display = "block";
-    } else {
-      recipes.forEach((i) => createRecipeCard(i));
+    .then((res) => {
+      // declare variable recipes = results.data.hits
+      const recipes = res.data.hits;
+      console.log(recipes);
+      if (recipes.length === 0) {
+        // noRecipesFound();
+        noRecipes.style.display = "block";
+      } else {
+        recipes.forEach((i) => createRecipeCard(i));
+      }
     }
-  }
   )
-  // // // account for filter options - OR TOGGLE RESULTS???
   // clear #ingredients-input box
   fieldset.innerHTML = '';
 }
@@ -177,4 +180,5 @@ document.querySelector('form').addEventListener('submit', addInput);
 const button = document.querySelector('#submit');
 button.addEventListener('click', (e) => {
   findRecipeCards(e);
-  addInput(e)});
+  addInput(e)
+});
