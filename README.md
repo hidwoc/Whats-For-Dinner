@@ -289,14 +289,14 @@ https://api.edamam.com/search
 | CSS for basic layout | M | 3hrs| 3hr |
 | Axios set up | H | 3hrs| 2hr 15min |
 | Render results | H | 3hrs| 2hr |
-| CSS for results | H | 3hrs| 3hr 30min |
-| Media query | H | 3hrs| 2hr 45min |
+| CSS for results | H | 3hrs| 4hr 30min |
+| Media query | H | 3hrs| 3hr 15min |
 | General Research aka Known Unknowns | M | 2hrs| 2hrs |
 | Unknown Unknowns | H | 3hrs | 30min |
-| Debugging | H | 3hrs| 45min |
-| Other JS | L | 3hrs| 1hr 30min |
+| Debugging | H | 3hrs| 1hr 30min |
+| Other JS | L | 3hrs| 2hr |
 | Deploy | H | | 30min |
-| MVP Total |  | 28hrs| 19hr 45min |
+| MVP Total |  | 28hrs| 22hr 30min |
 | (Optional) Single Serving Calculator | L | 1hr | |
 | (Optional) Filters/Labels JS | L | 3hrs | 
 | (Optional) Filters/Labels CSS | L | 3hrs | |
