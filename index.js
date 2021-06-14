@@ -1,6 +1,6 @@
 // declare global variable recipeBox for container recipes will be appended to
 const recipeBox = document.querySelector("#recipe-box");
-
+const noRecipes = document.querySelector(".no-recipes");
 // =====================================================
 // additive form code from workshop with Soleil!
 const fieldset = document.querySelector('fieldset');
@@ -52,24 +52,12 @@ const addInput = (event) => {
   } 
 }
 
-// create function in case of no recipes found
-// const noRecipesFound = () => {
-//   const tryAgain = document.createElement('div');
-//   tryAgain.className = "no-recipes";
-//   tryAgain.innerText = "No Recipes Found! Try a different search"
-  
-//   const confusedChefPic = document.createElement('img');
-//   confusedChefPic.src = "https://thumbs.dreamstime.com/b/cook-confused-face-uniform-sits-vegetables-cook-confused-face-uniform-sits-table-vegetables-pasta-126091282.jpg";
-//   tryAgain.appendChild(confusedChefPic);
-//   recipeBox.append(tryAgain);
-// }
-
 // create function to findRecipeCards
 const findRecipeCards = (event) => {
   event.preventDefault();
   // clear recipeBox of previous search results
   if (recipeBox != null) {
-    document.querySelector('.no-recipes').display = "none";
+    noRecipes.style.display = "none";
     recipeBox.innerHTML = '';
   }
   // take input of fieldset
@@ -88,7 +76,7 @@ const findRecipeCards = (event) => {
     console.log(recipes);
     if (recipes.length === 0) {
       // noRecipesFound();
-      document.querySelector('.no-recipes').display = "block";
+      noRecipes.style.display = "block";
     } else {
       recipes.forEach((i) => createRecipeCard(i));
     }

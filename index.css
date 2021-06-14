@@ -200,14 +200,17 @@ details[open] {
 }
 
 .no-recipes {
-  display: block;
+  display: none;
   width: 80vw;
   text-align: center;
   margin: 10px auto;
+  justify-content: center;
 }
 
 .no-recipes h2 {
   margin: 15px auto;
+  min-width: 389px;
+  text-align: center;
 }
 .energy {
   grid-area: E;
