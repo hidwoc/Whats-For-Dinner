@@ -28,7 +28,7 @@ const addInput = (event) => {
   // preparing for selection / cancelling events
   event.preventDefault();
   toggleButtonAbility();
-  if (fieldset.children.length <= 5) {
+  if (fieldset.children.length < 5) {
     
     const inputContainer = document.createElement('div');
     inputContainer.classList.add('input-container');
@@ -53,18 +53,23 @@ const addInput = (event) => {
 }
 
 // create function in case of no recipes found
-const noRecipesFound = () => {
-  const tryAgain = document.createElement('h2');
-  tryAgain.className = "no-recipes";
-  tryAgain.innerText = "No Recipes Found :("
-  recipeBox.append(tryAgain);
-}
+// const noRecipesFound = () => {
+//   const tryAgain = document.createElement('div');
+//   tryAgain.className = "no-recipes";
+//   tryAgain.innerText = "No Recipes Found! Try a different search"
+  
+//   const confusedChefPic = document.createElement('img');
+//   confusedChefPic.src = "https://thumbs.dreamstime.com/b/cook-confused-face-uniform-sits-vegetables-cook-confused-face-uniform-sits-table-vegetables-pasta-126091282.jpg";
+//   tryAgain.appendChild(confusedChefPic);
+//   recipeBox.append(tryAgain);
+// }
 
 // create function to findRecipeCards
 const findRecipeCards = (event) => {
   event.preventDefault();
   // clear recipeBox of previous search results
   if (recipeBox != null) {
+    document.querySelector('.no-recipes').display = "none";
     recipeBox.innerHTML = '';
   }
   // take input of fieldset
@@ -82,7 +87,8 @@ const findRecipeCards = (event) => {
     const recipes = res.data.hits;
     console.log(recipes);
     if (recipes.length === 0) {
-      noRecipesFound();
+      // noRecipesFound();
+      document.querySelector('.no-recipes').display = "block";
     } else {
       recipes.forEach((i) => createRecipeCard(i));
     }

@@ -200,10 +200,15 @@ details[open] {
 }
 
 .no-recipes {
+  display: block;
+  width: 80vw;
   text-align: center;
+  margin: 10px auto;
 }
 
-
+.no-recipes h2 {
+  margin: 15px auto;
+}
 .energy {
   grid-area: E;
 }
@@ -319,4 +324,7 @@ footer {
     font-size: .8em;
   }
 
+  .no-recipes img {
+    width: 75vw;
+  }
 }
