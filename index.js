@@ -115,7 +115,10 @@ const createRecipeCard = (i) => {
   }
   
   recipeImg.onerror = setDefaultPic; 
-  
+
+  // create details div so that details[open] can be positioned absolutely in relation to this container
+  const detailsDiv = document.createElement('div');
+  detailsDiv.className = "details";
   // create details element and set innerText to i.recipe.ingredientLines
   const recipeIngredients = document.createElement('details');
   ingredientLines = i.recipe.ingredientLines;
@@ -125,6 +128,7 @@ const createRecipeCard = (i) => {
   recipeIngredientsSummary.innerText = "Ingredients";
   // append summary element to details element
   recipeIngredients.appendChild(recipeIngredientsSummary);
+  detailsDiv.appendChild(recipeIngredients);
   
   // create p element with class .energy
   const energy = document.createElement("p");
@@ -159,7 +163,7 @@ const createRecipeCard = (i) => {
   carbs.innerText = `Carbs\n${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`;
   
   // append elements to recipeCard
-  recipeCard.append(label,recipeImg,recipeIngredients,energy,protein,fat,carbs);
+  recipeCard.append(label,recipeImg,detailsDiv,energy,protein,fat,carbs);
   // append .recipeCard to recipeBox
   recipeBox.appendChild(recipeCard);
 }
@@ -174,5 +178,3 @@ const button = document.querySelector('#submit');
 button.addEventListener('click', (e) => {
   findRecipeCards(e);
   addInput(e)});
-  
-  // // Back to Top function?

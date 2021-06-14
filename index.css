@@ -182,9 +182,13 @@ h4 a:hover {
   border-radius: 2%;
 }
 
+.details {
+  position: relative;
+  align-self: center;
+}
+
 .recipeCard details {
   grid-area: I;
-  align-self: center;
   box-sizing: border-box;
 }
 
@@ -197,6 +201,8 @@ details[open] {
   border: 1px ridge #232726;
   border-radius: 5%;
   overflow-y: scroll;
+  position: absolute;
+  width: 500%;
 }
 
 .no-recipes {
@@ -323,8 +329,21 @@ footer {
     margin: 5px;
     font-size: .8em;
   }
+
+  .recipeCard img {
+    width: 80vw;
+  }
+
   details {
     font-size: .8em;
+  }
+
+  details[open] {
+    width: 200%;
+  }
+
+  .no-recipes h2 {
+    max-width: 80vw;
   }
 
   .no-recipes img {
