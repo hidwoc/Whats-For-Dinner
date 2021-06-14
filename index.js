@@ -122,7 +122,7 @@ const createRecipeCard = (i) => {
   // create details element and set innerText to i.recipe.ingredientLines
   const recipeIngredients = document.createElement('details');
   ingredientLines = i.recipe.ingredientLines;
-  recipeIngredients.innerText = ingredientLines.join(' ');
+  recipeIngredients.innerText = ingredientLines.join(', ');
   // create summary element, set innerText = "Ingredients"
   const recipeIngredientsSummary = document.createElement('summary');
   recipeIngredientsSummary.innerText = "Ingredients";
