@@ -45,6 +45,12 @@ const addInput = (event) => {
     button.innerText = "-";
     
     button.addEventListener('click', removeInput);
+
+    // ATTEMPT AT DEBUGGING
+    // button.addEventListener('click', (e) => {
+    //   console.log('SUBTRACT BUTTON');
+    //   removeInput(e);
+    // });
     
     // append our elements to the container
     inputContainer.append(input, button);
@@ -77,7 +83,7 @@ const findRecipeCards = (event) => {
     .then((res) => {
       // declare variable recipes = results.data.hits
       const recipes = res.data.hits;
-      console.log(recipes);
+
       if (recipes.length === 0) {
         // noRecipesFound();
         noRecipes.style.display = "block";
@@ -175,6 +181,11 @@ const createRecipeCard = (i) => {
 addButton.addEventListener('click', addInput);
 // addInput when enter is hit
 document.querySelector('form').addEventListener('submit', addInput);
+// ATTEMPT AT DEBUGGING
+// document.querySelector('form').addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   console.log('enter key');
+//   addInput(e)});
 
 // addEventListener on 'submit' to #submit to findRecipeCards
 const button = document.querySelector('#submit');
