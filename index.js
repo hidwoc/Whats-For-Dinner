@@ -45,7 +45,6 @@ const addInput = (event) => {
     button.innerText = "-";
     
     button.addEventListener('click', removeInput);
-
     // ATTEMPT AT DEBUGGING
     // button.addEventListener('click', (e) => {
     //   console.log('SUBTRACT BUTTON');
@@ -143,7 +142,7 @@ const createRecipeCard = (i) => {
   const energy = document.createElement("p");
   energy.className = "energy";
   // assign innerText = `Energy: ${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`
-  const bigE = i.recipe.totalNutrients.ENERC_KCAL.quantity;
+  const bigE = i.recipe.totalNutrients.ENERC_KCAL.quantity/i.recipe.yield;
   const smallE = bigE.toFixed(2);
   energy.innerText = `Energy\n${smallE} ${i.recipe.totalNutrients.ENERC_KCAL.unit}`;
   
@@ -151,7 +150,7 @@ const createRecipeCard = (i) => {
   const protein = document.createElement("p");
   protein.className = "protein";
   // assign innerText = `Protein: ${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`
-  const bigP = i.recipe.totalNutrients.PROCNT.quantity;
+  const bigP = i.recipe.totalNutrients.PROCNT.quantity/i.recipe.yield;
   const smallP = bigP.toFixed(2);
   protein.innerText = `Protein\n${smallP} ${i.recipe.totalNutrients.PROCNT.unit}`;
   
@@ -159,7 +158,7 @@ const createRecipeCard = (i) => {
   const fat = document.createElement("p");
   fat.className = "fat";
   // assign innerText = `Fat: ${smallF} ${i.recipe.totalNutrients.FAT.unit}`
-  const bigF = i.recipe.totalNutrients.FAT.quantity;
+  const bigF = i.recipe.totalNutrients.FAT.quantity/i.recipe.yield;
   const smallF = bigF.toFixed(2);
   fat.innerText = `Fat\n${smallF} ${i.recipe.totalNutrients.FAT.unit}`;
   
@@ -167,7 +166,7 @@ const createRecipeCard = (i) => {
   const carbs = document.createElement("p");
   carbs.className = "carbs";
   // assign innerText = `Carbs: ${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`
-  const bigC = i.recipe.totalNutrients.CHOCDF.quantity;
+  const bigC = i.recipe.totalNutrients.CHOCDF.quantity/i.recipe.yield;
   const smallC = bigC.toFixed(2);
   carbs.innerText = `Carbs\n${smallC} ${i.recipe.totalNutrients.CHOCDF.unit}`;
   
