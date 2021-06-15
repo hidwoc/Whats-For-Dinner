@@ -64,6 +64,10 @@ h3 {
   width: 30vw;
 }
 
+span {
+  font-size: .8em;
+}
+
 /* FORM */
 label {
   margin: 15px;
@@ -215,6 +219,7 @@ details[open] {
   min-width: 389px;
   text-align: center;
 }
+
 .energy {
   grid-area: E;
 }
